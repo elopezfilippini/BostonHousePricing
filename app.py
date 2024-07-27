@@ -1,6 +1,6 @@
 import pickle
 from flask import Flask,request,app,jsonify,url_for,render_template
-import numpy
+import numpy as np
 import pandas
 
 app = Flask (__name__)
@@ -12,10 +12,10 @@ def home():
 
 @app.route("/predict_api",methods=["POST"])
 def predict_api():
-    data = request.json["data"]
+    data = request.json
+    # .get("data",None)
     print(data)
-    print(np.array(list(data.values()))).reshape(1,-1)
-    output=regmodel.predict((np.array(list(data.values()))).reshape(1,-1))
+    output=regmodel.predict(np.array(data).reshape(1,-1))
     print(output)
     return jsonify(output[0])
 
