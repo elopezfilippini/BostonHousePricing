@@ -4,6 +4,7 @@ scikit-learn==1.0.2
 
 
 pandas
-Numpy
+numpy==1.23.5
+scikit-learn==1.2.2
 matplotlib
 gunicorn==20.1.0
