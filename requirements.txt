@@ -4,7 +4,7 @@ Flask
 
 
 pandas
-numpy==1.23.5
-scikit-learn==1.2.2
+numpy
+scikit-learn
 matplotlib
-gunicorn==20.1.0
+gunicorn
