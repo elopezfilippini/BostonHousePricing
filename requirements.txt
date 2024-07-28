@@ -3,3 +3,4 @@ scikit-learn
 pandas
 Numpy
 matplotlib
+gunicorn==20.1.0
