@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.container {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px; /* Ajusta este valor según sea necesario */
+    width: 100%;
+}
+
+.dibu {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px; /* Espacio entre la imagen y el formulario */
+}
+
+.imagen {
+    max-width: 100%; /* Ajusta el ancho máximo de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    max-height: 200px; /* Ajusta la altura máxima según sea necesario */
+}
+
+h1 {
+    color: #333;
+}
+
+.form-container {
+    margin-top: 20px;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+label {
+    text-align: left;
+    margin: 5px 0;
+}
+
+input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: calc(100% - 20px);
+    margin: 5px 0;
+}
+
+button {
+    grid-column: span 2;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
