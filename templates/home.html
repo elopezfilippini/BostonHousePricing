@@ -8,66 +8,69 @@
 </head>
 <body>
     <div class="container">
-        <h1>Predict the Price of House in Boston</h1>
-        <div><img  class="imagen" src="{{ url_for('static', filename='casa.jpg') }}"></div>
+        <select id="language-select" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+        </select>
+
+        <h1 id="title">Predict the Price of House in Boston</h1>
+        <div><img class="imagen" src="{{ url_for('static', filename='casa.jpg') }}"></div>
   
-       
         <div class="form-container">
-            <h3>Enter the data so de ML model can predict the house price  :)</h3>
+            <h3 id="subtitle">Enter the data so the ML model can predict the house price :)</h3>
             <form id="prediction-form">
-                <label for="lotFrontage">Lot Frontage (ft):</label>
+                <label for="lotFrontage" id="lotFrontageLabel">Lot Frontage (ft):</label>
                 <input type="number" id="lotFrontage" name="LotFrontage">
 
-                <label for="lotArea">Lot Area (sq ft):</label>
+                <label for="lotArea" id="lotAreaLabel">Lot Area (sq ft):</label>
                 <input type="number" id="lotArea" name="LotArea">
 
-                <label for="neighborhood">Neighborhood:</label>
+                <label for="neighborhood" id="neighborhoodLabel">Neighborhood:</label>
                 <input type="text" id="neighborhood" name="Neighborhood">
 
-                <label for="overallQual">Overall Quality:</label>
+                <label for="overallQual" id="overallQualLabel">Overall Quality:</label>
                 <input type="number" id="overallQual" name="OverallQual">
 
-                <label for="yearBuilt">Year Built:</label>
+                <label for="yearBuilt" id="yearBuiltLabel">Year Built:</label>
                 <input type="number" id="yearBuilt" name="YearBuilt">
 
-                <label for="yearRemodAdd">Year Remodeled:</label>
+                <label for="yearRemodAdd" id="yearRemodAddLabel">Year Remodeled:</label>
                 <input type="number" id="yearRemodAdd" name="YearRemodAdd">
 
-                <label for="masVnrArea">Masonry Veneer Area (sq ft):</label>
+                <label for="masVnrArea" id="masVnrAreaLabel">Masonry Veneer Area (sq ft):</label>
                 <input type="number" id="masVnrArea" name="MasVnrArea">
 
-                <label for="bsmtFinSF1">Finished Basement Area (sq ft):</label>
+                <label for="bsmtFinSF1" id="bsmtFinSF1Label">Finished Basement Area (sq ft):</label>
                 <input type="number" id="bsmtFinSF1" name="BsmtFinSF1">
 
-                <label for="totalBsmtSF">Total Basement Area (sq ft):</label>
+                <label for="totalBsmtSF" id="totalBsmtSFLabel">Total Basement Area (sq ft):</label>
                 <input type="number" id="totalBsmtSF" name="TotalBsmtSF">
 
-                <label for="firstFlrSF">First Floor Area (sq ft):</label>
+                <label for="firstFlrSF" id="firstFlrSFLabel">First Floor Area (sq ft):</label>
                 <input type="number" id="firstFlrSF" name="1stFlrSF">
 
-                <label for="2ndFlrSF">Second Floor Area (sq ft):</label>
-                <input type="number" id="2ndFlrSF" name="1stFlrSF">
+                <label for="2ndFlrSF" id="2ndFlrSFLabel">Second Floor Area (sq ft):</label>
+                <input type="number" id="2ndFlrSF" name="2ndFlrSF">
 
-                <label for="FireplaceQu">Above Ground Living Area</label>
-                <input type="number" id="GrLivArea" name="1stFlrSF">
+                <label for="GrLivArea" id="GrLivAreaLabel">Above Ground Living Area (sq ft):</label>
+                <input type="number" id="GrLivArea" name="GrLivArea">
 
-                <label for="KitchenQual">Full bathrooms above grade</label>
-                <input type="number" id="KitchenQual" name="1stFlrSF">
+                <label for="fullBath" id="fullBathLabel">Full bathrooms above grade:</label>
+                <input type="number" id="fullBath" name="FullBath">
 
-                <label for="KitchenQual">Kitchen Quality</label>
-                <input type="number" id="KitchenQual" name="1stFlrSF">
+                <label for="kitchenQual" id="kitchenQualLabel">Kitchen Quality:</label>
+                <input type="number" id="kitchenQual" name="KitchenQual">
 
-                
-                <label for="FireplaceQu">Fireplace quality</label>
-                <input type="number" id="FireplaceQu" name="1stFlrSF">
+                <label for="fireplaceQu" id="fireplaceQuLabel">Fireplace Quality:</label>
+                <input type="number" id="fireplaceQu" name="FireplaceQu">
 
-                <label for="garageArea">Garage Area (sq ft):</label>
+                <label for="garageArea" id="garageAreaLabel">Garage Area (sq ft):</label>
                 <input type="number" id="garageArea" name="GarageArea">
 
-                <label for="openPorchSF">Open Porch Area (sq ft):</label>
+                <label for="openPorchSF" id="openPorchSFLabel">Open Porch Area (sq ft):</label>
                 <input type="number" id="openPorchSF" name="OpenPorchSF">
 
-                <label for="yrSold">Year Sold:</label>
+                <label for="yrSold" id="yrSoldLabel">Year Sold:</label>
                 <input type="number" id="yrSold" name="YrSold">
 
                 <button type="button" onclick="submitForm()">Predict</button>
@@ -75,5 +78,63 @@
         </div>
     </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+        const translations = {
+            en: {
+                title: "Predict the Price of House in Boston",
+                subtitle: "Enter the data so the ML model can predict the house price :)",
+                lotFrontageLabel: "Lot Frontage (ft):",
+                lotAreaLabel: "Lot Area (sq ft):",
+                neighborhoodLabel: "Neighborhood:",
+                overallQualLabel: "Overall Quality:",
+                yearBuiltLabel: "Year Built:",
+                yearRemodAddLabel: "Year Remodeled:",
+                masVnrAreaLabel: "Masonry Veneer Area (sq ft):",
+                bsmtFinSF1Label: "Finished Basement Area (sq ft):",
+                totalBsmtSFLabel: "Total Basement Area (sq ft):",
+                firstFlrSFLabel: "First Floor Area (sq ft):",
+                secondFlrSFLabel: "Second Floor Area (sq ft):",
+                GrLivAreaLabel: "Above Ground Living Area (sq ft):",
+                fullBathLabel: "Full bathrooms above grade:",
+                kitchenQualLabel: "Kitchen Quality:",
+                fireplaceQuLabel: "Fireplace Quality:",
+                garageAreaLabel: "Garage Area (sq ft):",
+                openPorchSFLabel: "Open Porch Area (sq ft):",
+                yrSoldLabel: "Year Sold:"
+            },
+            es: {
+                title: "Predecir el Precio de una Casa en Boston",
+                subtitle: "Ingrese los datos para que el modelo de ML pueda predecir el precio de la casa :)",
+                lotFrontageLabel: "Frente del Lote (pies):",
+                lotAreaLabel: "Área del Lote (pies cuadrados):",
+                neighborhoodLabel: "Vecindario:",
+                overallQualLabel: "Calidad General:",
+                yearBuiltLabel: "Año de Construcción:",
+                yearRemodAddLabel: "Año de Remodelación:",
+                masVnrAreaLabel: "Área de Revestimiento de Mampostería (pies cuadrados):",
+                bsmtFinSF1Label: "Área de Sótano Terminado (pies cuadrados):",
+                totalBsmtSFLabel: "Área Total del Sótano (pies cuadrados):",
+                firstFlrSFLabel: "Área del Primer Piso (pies cuadrados):",
+                secondFlrSFLabel: "Área del Segundo Piso (pies cuadrados):",
+                GrLivAreaLabel: "Área Habitable Sobre el Suelo (pies cuadrados):",
+                fullBathLabel: "Baños completos sobre el suelo:",
+                kitchenQualLabel: "Calidad de la Cocina:",
+                fireplaceQuLabel: "Calidad de la Chimenea:",
+                garageAreaLabel: "Área del Garaje (pies cuadrados):",
+                openPorchSFLabel: "Área del Porche Abierto (pies cuadrados):",
+                yrSoldLabel: "Año de Venta:"
+            }
+        };
+
+        function changeLanguage() {
+            const language = document.getElementById("language-select").value;
+            const elements = document.querySelectorAll("[id]");
+            elements.forEach(element => {
+                if (translations[language][element.id]) {
+                    element.innerText = translations[language][element.id];
+                }
+            });
+        }
+    </script>
 </body>
 </html>

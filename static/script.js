@@ -1,3 +1,5 @@
+
+
 function submitForm() {
     console.log("aqui estoy ")
     const form = document.getElementById('prediction-form');
@@ -14,7 +16,7 @@ function submitForm() {
         datanumerica.push(parseFloat(value) || 0); // Convert to float, or use 0 if not a number
     });
 
-    console.log("la data numerica es ", datanumerica);
+   
 
     fetch('/predict_api', {
         method: 'POST',
@@ -25,7 +27,7 @@ function submitForm() {
     })
     .then(response => response.json())
     .then(result => {
-        alert('Prediction: ' + (result || 'No prediction returned'));
+        alert('The price predicted is : $' + (Math.round(result,2) || 'No prediction returned'));
     })
     .catch(error => {
         console.error('Error:', error);
