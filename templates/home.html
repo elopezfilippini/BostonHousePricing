@@ -15,7 +15,7 @@
 
         <h1 id="title">Predict the Price of House in Boston</h1>
         <div><img class="imagen" src="{{ url_for('static', filename='casa.jpg') }}"></div>
-  
+
         <div class="form-container">
             <h3 id="subtitle">Enter the data so the ML model can predict the house price :)</h3>
             <form id="prediction-form">
@@ -26,7 +26,31 @@
                 <input type="number" id="lotArea" name="LotArea">
 
                 <label for="neighborhood" id="neighborhoodLabel">Neighborhood:</label>
-                <input type="text" id="neighborhood" name="Neighborhood">
+                <select id="neighborhood" name="Neighborhood">
+                    <option value=0>MeadowV</option>
+                    <option value=1>IDOTRR</option>
+                    <option value=2>BrDale</option>
+                    <option value=3>BrkSide</option>
+                    <option value=4>Edwards</option>
+                    <option value=5>OldTown</option>
+                    <option value=6>Sawyer</option>
+                    <option value=7>SWISU</option>
+                    <option value=8>NAmes</option>
+                    <option value=9>Mitchel</option>
+                    <option value=10>SawyerW</option>
+                    <option value=11>NWAmes</option>
+                    <option value=12>Rare_var</option>
+                    <option value=13>Gilbert</option>
+                    <option value=14>Blmngtn</option>
+                    <option value=15>CollgCr</option>
+                    <option value=16>Crawfor</option>
+                    <option value=17>ClearCr</option>
+                    <option value=18>Somerst</option>
+                    <option value=19>Timber</option>
+                    <option value=20>StoneBr</option>
+                    <option value=21>NridgHt</option>
+                    <option value=22>NoRidge</option>
+                </select>
 
                 <label for="overallQual" id="overallQualLabel">Overall Quality:</label>
                 <input type="number" id="overallQual" name="OverallQual">
@@ -58,11 +82,31 @@
                 <label for="fullBath" id="fullBathLabel">Full bathrooms above grade:</label>
                 <input type="number" id="fullBath" name="FullBath">
 
-                <label for="kitchenQual" id="kitchenQualLabel">Kitchen Quality:</label>
-                <input type="number" id="kitchenQual" name="KitchenQual">
+                
+              
+                <label for="KitchenQual" id="KitchenQual">Kitchen Quality:</label>
+                <select id="neighborhood" name="Neighborhood">
+                    <option value=0>0</option>
+                    <option value=1>1</option>
+                  
+                </select>
+                <label for="fireplaceQu" id="fireplaceQu">Fireplace Quality:</label>
 
-                <label for="fireplaceQu" id="fireplaceQuLabel">Fireplace Quality:</label>
-                <input type="number" id="fireplaceQu" name="FireplaceQu">
+                <select id="fireplaceQu" name="fireplaceQu">
+                    <option value=0>0</option>
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                    <option value=4>4</option>
+                    <option value=5>5</option>
+                    
+                    
+                    
+                </select>
+
+
+                <!-- <label for="fireplaceQu" id="fireplaceQuLabel">Fireplace Quality:</label>
+                <input type="number" id="fireplaceQu" name="FireplaceQu"> -->
 
                 <label for="garageArea" id="garageAreaLabel">Garage Area (sq ft):</label>
                 <input type="number" id="garageArea" name="GarageArea">
@@ -135,6 +179,13 @@
                 }
             });
         }
+
+ 
+
+       
+
+            // Add code here to submit the form data via an AJAX request or other method
+      
     </script>
 </body>
 </html>

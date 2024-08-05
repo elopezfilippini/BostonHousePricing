@@ -15,7 +15,7 @@ function submitForm() {
     formData.forEach((value) => {
         datanumerica.push(parseFloat(value) || 0); // Convert to float, or use 0 if not a number
     });
-
+console.log(datanumerica)
    
 
     fetch('/predict_api', {
