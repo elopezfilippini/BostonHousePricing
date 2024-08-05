@@ -1,22 +1,13 @@
-
-
 function submitForm() {
-    console.log("aqui estoy ")
     const form = document.getElementById('prediction-form');
     const formData = new FormData(form);
 
-    const data = {};
-    formData.forEach((value, key) => {
-        data[key] = value;
-    });
-
- 
     const datanumerica = [];
     formData.forEach((value) => {
         datanumerica.push(parseFloat(value) || 0); // Convert to float, or use 0 if not a number
     });
-console.log(datanumerica)
-   
+
+    console.log("Datos enviados:", datanumerica);  // Para depuración
 
     fetch('/predict_api', {
         method: 'POST',
@@ -27,7 +18,13 @@ console.log(datanumerica)
     })
     .then(response => response.json())
     .then(result => {
-        alert('The price predicted is : $' + (Math.round(result,2) || 'No prediction returned'));
+        console.log("Respuesta recibida:", result);  // Para depuración
+        if (typeof result.prediction === 'number') {
+            alert('The price predicted is : $' + Math.round(result.prediction,2));
+        } else {
+            console.error('Error: La predicción no es un número');
+            alert('An error occurred. Please try again.');
+        }
     })
     .catch(error => {
         console.error('Error:', error);

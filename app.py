@@ -17,7 +17,7 @@ with open('regmodel.pkl', 'rb') as file:
 with open('scaler.pkl', 'rb') as file:
     scaler = pickle.load(file)
 
-@app.route('/predict', methods=['POST'])
+@app.route('/predict_api', methods=['POST'])
 def predict_api():
     try:
         data = request.json
@@ -51,7 +51,7 @@ def predict_api():
 
         # Realizar la predicción
         output = regmodel.predict(input_data)
-        print("Predicción:", output)
+        print("Predicción:", output[0])
 
         return jsonify({"prediction": float(output[0])})
     except Exception as e:
