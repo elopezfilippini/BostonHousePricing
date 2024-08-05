@@ -5,6 +5,11 @@ import pickle
 
 app = Flask(__name__)
 
+
+@app.route("/")
+def home():
+    return render_template ("home.html"
+
 # Cargar el modelo previamente guardado
 with open('regmodel.pkl', 'rb') as file:
     regmodel = pickle.load(file)
