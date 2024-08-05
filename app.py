@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify,render_template
 import numpy as np
 import pandas as pd
 import pickle
@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return render_template ("home.html"
+    return render_template ("home.html")
 
 # Cargar el modelo previamente guardado
 with open('regmodel.pkl', 'rb') as file:
